@@ -1,10 +1,11 @@
-require('dotenv').config({ path: __dirname + '/.env' });
 const mongoose = require('mongoose');
-const db = process.env.mongoURI;
+//require('dotenv').config({ path: __dirname + '/.env' });
 
-const connectDB = async () => {
+const db = 'mongodb://127.0.0.1:27017/sleep-tracker';
+console.log("db",db);
+
   try {
-    await mongoose.connect(db, {
+     mongoose.connect(db, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
@@ -15,7 +16,4 @@ const connectDB = async () => {
     console.log(err.message);
     // Exit process with failure
     process.exit(1);
-  }
-};
-
-module.exports = connectDB;
+  };

@@ -7,11 +7,11 @@ import { findConsecutiveSeries } from '../../utils/findConsecutiveSeries';
 
 const Header = ({ setRoutine, auth: { loading, user }, event: { events } }) => {
   const [display, setDisplay] = useState(false);
-  const [time, setTime] = useState();
+  const [time, setTime] = useState("");
   let routine;
 
   const handleClick = () => {
-    if (time && user !== null && time !== user.routine.time) {
+    if (time && user !== null) { //time !== user.routine.time
       routine = {
         time: time,
         string: `Your routine is set to ${time}`
